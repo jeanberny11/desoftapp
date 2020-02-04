@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Desoftinf</string>
+    <string name="logodescripcion">Imagen del splash screen</string>
+    <string name="conexionerror">Error, no hay conexion. Haga click a la imagen para reintentar!</string>
+</resources>
