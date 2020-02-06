@@ -1,4 +1,4 @@
-package com.desoft.desoftapp
+package com.desoft.desoftapp.activity
 
 import android.bluetooth.BluetoothAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +7,11 @@ import android.view.animation.Animation
 import android.content.Intent
 import android.view.animation.Animation.AnimationListener
 import android.R.anim
+import android.view.Window
 import android.view.animation.AnimationUtils
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.desoft.desoftapp.R
 import kotlinx.android.synthetic.main.activity_slash_screen.*
 
 
@@ -17,11 +19,11 @@ class SplashScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_slash_screen)
         val bluetoothAdapter=BluetoothAdapter.getDefaultAdapter()
         if(!bluetoothAdapter.isEnabled)
             bluetoothAdapter.enable()
-
         cargarPermiso()
     }
 
@@ -54,7 +56,8 @@ class SplashScreenActivity : AppCompatActivity() {
                 override fun onAnimationStart(animation: Animation) {}
 
                 override fun onAnimationEnd(animation: Animation) {
-                    val mainintent=Intent(this@SplashScreenActivity,MainActivity::class.java)
+                    val mainintent=Intent(this@SplashScreenActivity,
+                        MainActivity::class.java)
                     startActivity(mainintent)
                     this@SplashScreenActivity.finish()
                 }
@@ -90,7 +93,8 @@ class SplashScreenActivity : AppCompatActivity() {
                     override fun onAnimationStart(animation: Animation) {}
 
                     override fun onAnimationEnd(animation: Animation) {
-                        val mainintent=Intent(this@SplashScreenActivity,MainActivity::class.java)
+                        val mainintent=Intent(this@SplashScreenActivity,
+                            MainActivity::class.java)
                         startActivity(mainintent)
                         this@SplashScreenActivity.finish()
                     }
